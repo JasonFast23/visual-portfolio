@@ -3,15 +3,20 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [showResume, setShowResume] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved === 'light' ? false : true;
+  });
 
   useEffect(() => {
     if (isDark) {
       document.body.classList.remove('light-theme');
       document.body.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.remove('dark-theme');
       document.body.classList.add('light-theme');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
@@ -113,13 +118,15 @@ function App() {
             title="BruinLM"
             description="Collaborative study platform with AI-powered knowledge bases using RAG"
             tech={["React", "Node.js", "PostgreSQL"]}
-            github="https://github.com/JasonFast23/bruinlm"
+            github="https://github.com/JasonFast23/BruinLM"
+            image="/bruinlm.png"
           />
           <ProjectCard 
             title="MoodMate"
             description="iOS emotion recognition app for autistic children"
             tech={["Swift", "SwiftUI", "UIKit"]}
-            github="https://github.com/JasonFast23/moodmate"
+            github="https://github.com/JasonFast23/emotion-quiz"
+            image="/moodmate.PNG"
           />
         </div>
       </section>
@@ -262,15 +269,22 @@ function App() {
   );
 }
 
-function ProjectCard({ title, description, tech, github }) {
+function ProjectCard({ title, description, tech, github, image }) {
   return (
     <div className="project-card">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <div className="tech-tags">
-        {tech.map(t => <span key={t} className="tag">{t}</span>)}
+      {image && (
+        <div className="project-image">
+          <img src={image} alt={title} />
+        </div>
+      )}
+      <div className="project-content">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <div className="tech-tags">
+          {tech.map(t => <span key={t} className="tag">{t}</span>)}
+        </div>
+        <a href={github} target="_blank" rel="noopener noreferrer" className="view-repo-button">View Repository</a>
       </div>
-      <a href={github} target="_blank" rel="noopener noreferrer">View on GitHub →</a>
     </div>
   );
 }
