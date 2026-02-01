@@ -8,6 +8,7 @@ function App() {
     return saved === 'light' ? false : true;
   });
   const [activeSection, setActiveSection] = useState('about');
+  const [activeTab, setActiveTab] = useState('experience');
 
   useEffect(() => {
     if (isDark) {
@@ -76,16 +77,16 @@ function App() {
         <section id="about" className="section">
         <div className="about-container">
           <div className="about-text">
-            <h2>hey, i'm jason</h2>
+            <h2>Hi, I'm Jason</h2>
+            <p className="description">
+              AI engineer building RAG systems and multi-agent architectures.
+            </p>
             <p className="subtitle">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px'}}>
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
               Los Angeles, CA
-            </p>
-            <p className="description">
-              22 yo cs student
             </p>
             <div className="cta-links">
               <button onClick={() => setShowResume(true)} className="resume-button">
@@ -123,130 +124,138 @@ function App() {
       </section>
 
       <section id="experience" className="section">
-        <h2>Experience</h2>
-        <div className="experience-list">
-          <ExperienceCard 
-            title="Software Engineer Intern"
-            company="For the Need Foundation"
-            location="Simi Valley, CA (Hybrid)"
-            period="Jul 2025 - Sep 2025"
-            description="Developed JavaScript workflow to automate manual CRM excel data cleaning process—duplicate account merging, age corrections, contact validation. Configured Docker setup enabling non-technical staff to execute workflow with single button click."
-          />
-          <ExperienceCard 
-            title="Software Engineer Intern"
-            company="GoDaddy"
-            location="Tempe, AZ (Remote)"
-            period="Jun 2023 - Aug 2023"
-            description="Built UI components (forms, toggles, modals) in React + TypeScript sandbox environment. Created Node.js/Python API routes to support mock dashboard features."
-          />
+        <div className="tabs">
+          <button 
+            className={`tab-button ${activeTab === 'experience' ? 'active' : ''}`}
+            onClick={() => setActiveTab('experience')}
+          >
+            Experience
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'education' ? 'active' : ''}`}
+            onClick={() => setActiveTab('education')}
+          >
+            Education
+          </button>
         </div>
+        
+        {activeTab === 'experience' ? (
+          <div className="experience-list">
+            <ExperienceCard 
+              logo="/for-the-need-logo.png"
+              title="AI Software Engineer Intern"
+              company="For The Need Foundation"
+              employmentType="Internship"
+              location="Simi Valley, California, United States"
+              locationType="Hybrid"
+              period="Jul 2025 - Sep 2025"
+              bullets={[
+                "Built n8n JavaScript workflow to automate CRM data cleaning (duplicate merging, age updates, validation), replacing hours of manual Excel work per event with one-click execution",
+                "Deployed workflow via Docker so staff could run data processing locally from their desktops"
+              ]}
+              skills={["Docker", "n8n", "+2 skills"]}
+            />
+            <ExperienceCard 
+              logo="/2nd-godaddy-logo.png"
+              logoClassName="godaddy-logo"
+              title="Software Engineer Intern"
+              company="GoDaddy"
+              employmentType="Internship"
+              location="Tempe, Arizona, United States"
+              locationType="Remote"
+              period="Jun 2023 - Aug 2023"
+              bullets={[
+                "Worked on sandbox projects, building small UI features and debugging frontend issues using React/TypeScript",
+                "Created simple Node.js/Python API routes and learned development workflows (Git & code reviews)"
+              ]}
+              skills={["Git", "GitHub", "+8 skills"]}
+            />
+          </div>
+        ) : (
+          <div className="experience-list">
+            <ExperienceCard 
+              logo="/uclabruinslogo.png"
+              logoClassName="ucla-logo"
+              title="University of California, Los Angeles"
+              company="Bachelor's in Computer Science and Linguistics"
+              location="Los Angeles, CA"
+              period="Sep 2024 - Jun 2026"
+              description="Relevant Coursework: Data Structures & Algorithms, Software Engineering, Operating Systems, Computer Architecture, Databases, Machine Learning"
+            />
+          </div>
+        )}
       </section>
 
       <section id="projects" className="section">
-        <h2>Projects</h2>
+        <div className="projects-header">
+          <h2>featured projects</h2>
+          <a href="#" className="view-more-link">
+            view more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17l9.2-9.2M17 17V7H7"/>
+            </svg>
+          </a>
+        </div>
         <div className="projects-grid">
           <ProjectCard 
-            title="BruinLM"
-            description="Collaborative study platform with AI-powered knowledge bases using RAG"
-            tech={["React", "Node.js", "PostgreSQL"]}
-            github="https://github.com/JasonFast23/BruinLM"
-            image="/bruinlm.png"
+            title="AI RAG Eval"
+            description="Evaluation framework for RAG systems with automated testing and performance metrics"
+            tech={["Python", "FastAPI", "PostgreSQL"]}
+            github="https://github.com/JasonFast23/ai-rag-eval"
+            image="/ai-rag-eval.png"
           />
           <ProjectCard 
-            title="MoodMate"
-            description="iOS emotion recognition app for autistic children"
-            tech={["Swift", "SwiftUI", "UIKit"]}
-            github="https://github.com/JasonFast23/emotion-quiz"
-            image="/moodmate.PNG"
+            title="Multi-Agent Debate"
+            description="Collaborative AI system where multiple agents engage in structured debates to reach consensus"
+            tech={["Python", "Selenium", "Telegram Bot API"]}
+            github="https://github.com/JasonFast23/multi-agent-debate"
+            image="/multi-agent-debate.png"
           />
         </div>
       </section>
 
       <section id="skills" className="section">
         <h2>Skills</h2>
-        <div className="skills-carousel">
-          <div className="skills-track">
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-              <span>Python</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-              <span>Java</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
-              <span>C/C++</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-              <span>JavaScript</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
-              <span>TypeScript</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-              <span>React</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-              <span>Node.js</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
-              <span>PostgreSQL</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-              <span>Docker</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-              <span>Git</span>
-            </div>
-            {/* Duplicate for seamless loop */}
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-              <span>Python</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-              <span>Java</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
-              <span>C/C++</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-              <span>JavaScript</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
-              <span>TypeScript</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-              <span>React</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-              <span>Node.js</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
-              <span>PostgreSQL</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-              <span>Docker</span>
-            </div>
-            <div className="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-              <span>Git</span>
-            </div>
+        <div className="skills-grid">
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+            <span>Python</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+            <span>Java</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+            <span>C/C++</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+            <span>JavaScript</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+            <span>TypeScript</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+            <span>React</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+            <span>Node.js</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+            <span>PostgreSQL</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+            <span>Docker</span>
+          </div>
+          <div className="skill-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+            <span>Git</span>
           </div>
         </div>
       </section>
@@ -321,17 +330,51 @@ function ProjectCard({ title, description, tech, github, image }) {
   );
 }
 
-function ExperienceCard({ title, company, location, period, description }) {
+function ExperienceCard({ logo, logoClassName, title, company, employmentType, location, locationType, period, duration, description, bullets, skills }) {
   return (
     <div className="experience-card">
-      <div className="experience-header">
-        <div>
-          <h3>{title}</h3>
-          <p className="company">{company} • {location}</p>
+      <div className="experience-main">
+        {logo && (
+          <div className={`experience-logo ${logoClassName || ''}`}>
+            <img src={logo} alt={company} onError={(e) => e.target.style.display = 'none'} />
+          </div>
+        )}
+        <div className="experience-content">
+          <div className="experience-header">
+            <div className="experience-title-section">
+              <h3>{title}</h3>
+              <p className="company-info">
+                <span className="company-name">{company}</span>
+                {employmentType && <span className="employment-type"> · {employmentType}</span>}
+              </p>
+              <p className="location-info">
+                <span>{location}</span>
+                {locationType && <span> · {locationType}</span>}
+              </p>
+            </div>
+            <div className="experience-date-section">
+              <p className="period-location">
+                <span className="period">{period}</span>
+                {duration && <span className="duration"> · {duration}</span>}
+              </p>
+            </div>
+          </div>
+          {bullets ? (
+            <ul className="experience-bullets">
+              {bullets.map((bullet, idx) => <li key={idx}>{bullet}</li>)}
+            </ul>
+          ) : description && (
+            <p className="description">{description}</p>
+          )}
+          {skills && skills.length > 0 && (
+            <div className="experience-skills">
+              {skills.map((skill, idx) => (
+                <span key={idx} className="skill-tag">{skill}</span>
+              ))}
+            </div>
+          )}
         </div>
-        <span className="period">{period}</span>
       </div>
-      <p className="description">{description}</p>
     </div>
   );
 }
