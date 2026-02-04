@@ -25,13 +25,14 @@ const Projects = () => {
   return (
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
       <header className="top-header">
-        <nav className="top-nav">
-          <Link to="/" className="top-nav-item">home</Link>
-          <Link to="/projects" className="top-nav-item active">projects</Link>
-          <Link to="/blog" className="top-nav-item">blog</Link>
-          <Link to="/contact" className="top-nav-item">contact</Link>
-        </nav>
-        <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
+        <div className="top-nav-container">
+          <nav className="top-nav">
+            <Link to="/" className="top-nav-item">home</Link>
+            <Link to="/projects" className="top-nav-item active">projects</Link>
+            <Link to="/blog" className="top-nav-item">blog</Link>
+            <Link to="/contact" className="top-nav-item">contact</Link>
+          </nav>
+          <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
           {isDark ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="5"/>
@@ -50,6 +51,7 @@ const Projects = () => {
             </svg>
           )}
         </button>
+        </div>
       </header>
 
       <main className="main-content">
@@ -61,40 +63,38 @@ const Projects = () => {
 
             <div className="projects-grid">
               <ProjectCard 
-              title="TT4D"
-              description="Generate winning combinations, view past results, and analyze lottery trends all in one place"
-              tech={["BS4", "Docker", "FastAPI", "Fly.io", "NextJS", "PostgreSQL", "Python", "TailwindCSS"]}
-              website="https://tt4d.com"
-              source="https://github.com/JasonFast23/tt4d"
-              sourceUI="https://github.com/JasonFast23/tt4d-ui"
-              image="/tt4d-screenshot.png"
-            />
-            
-            <ProjectCard 
-              title="Tradingview Telegram Alerts"
-              description="Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes"
-              tech={["Docker", "FastAPI", "Fly.io", "Python", "Selenium", "Telegram Bot API"]}
-              source="https://github.com/JasonFast23/tradingview-telegram-alerts"
-              image="/tradingview-telegram-screenshot.png"
-            />
+                title="BruinLM"
+                description="A Collective RAG assistant for UCLA students."
+                tech={["Python", "FastAPI", "RAG", "LangChain", "PostgreSQL", "OpenAI", "Pinecone", "React"]}
+                source="https://github.com/JasonFast23/bruinlm"
+                image="/bruinlm.png"
+              />
+              
+              <ProjectCard 
+                title="Multi-Agent Historical Debate"
+                description="AI agents mimicking historical figures engage in debates about political topics."
+                tech={["React", "Node.js", "OpenAI", "Express", "Socket.io", "MongoDB", "TailwindCSS"]}
+                website="https://historical-debate.com"
+                source="https://github.com/JasonFast23/multi-agent-debate"
+                image="/debate-screenshot.png"
+              />
 
-            <ProjectCard 
-              title="NFTVue"
-              description="A comprehensive NFT marketplace and portfolio tracker with real-time price monitoring and collection analytics"
-              tech={["Vue.js", "Node.js", "MongoDB", "Web3.js", "Tailwind CSS"]}
-              website="https://nftvue.com"
-              source="https://github.com/JasonFast23/nftvue"
-              image="/nftvue-screenshot.png"
-            />
+              <ProjectCard 
+                title="AI RAG Evaluator"
+                description="A comprehensive monitoring and evaluation system for RAG responses from BruinLM."
+                tech={["Python", "FastAPI", "PostgreSQL", "React", "Chart.js", "OpenAI", "Prometheus", "Grafana"]}
+                source="https://github.com/JasonFast23/ai-rag-evaluator"
+                image="/rag-eval-screenshot.png"
+              />
 
-            <ProjectCard 
-              title="Personal Website"
-              description="My personal portfolio website showcasing projects, blog posts, and professional experience with a clean, modern design"
-              tech={["React", "CSS3", "React Router", "Responsive Design"]}
-              source="https://github.com/JasonFast23/jason-portfolio"
-              image="/portfolio-screenshot.png"
-            />
-          </div>
+              <ProjectCard 
+                title="Visual Portfolio"
+                description="The website you're on."
+                tech={["React", "CSS3", "React Router", "Responsive Design"]}
+                source="https://github.com/JasonFast23/jason-portfolio"
+                image="/visualportfolio.png"
+              />
+            </div>
         </div>
         </section>
       </main>

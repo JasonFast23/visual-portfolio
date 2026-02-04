@@ -69,13 +69,14 @@ const Blog = () => {
   return (
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
       <header className="top-header">
-        <nav className="top-nav">
-          <Link to="/" className="top-nav-item">home</Link>
-          <Link to="/projects" className="top-nav-item">projects</Link>
-          <span className="top-nav-item active">blog</span>
-          <Link to="/contact" className="top-nav-item">contact</Link>
-        </nav>
-        <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
+        <div className="top-nav-container">
+          <nav className="top-nav">
+            <Link to="/" className="top-nav-item">home</Link>
+            <Link to="/projects" className="top-nav-item">projects</Link>
+            <Link to="/blog" className="top-nav-item active">blog</Link>
+            <Link to="/contact" className="top-nav-item">contact</Link>
+          </nav>
+          <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
           {isDark ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="5"/>
@@ -94,6 +95,7 @@ const Blog = () => {
             </svg>
           )}
         </button>
+        </div>
       </header>
 
       <main className="main-content">
