@@ -76,7 +76,7 @@ const Projects = () => {
                 tech={["React", "Node.js", "OpenAI", "Express", "Socket.io", "MongoDB", "TailwindCSS"]}
                 website="https://historical-debate.com"
                 source="https://github.com/JasonFast23/multi-agent-debate"
-                image="/debate-screenshot.png"
+                image="/ai historical debate.png"
               />
 
               <ProjectCard 
@@ -84,7 +84,7 @@ const Projects = () => {
                 description="A comprehensive monitoring and evaluation system for RAG responses from BruinLM."
                 tech={["Python", "FastAPI", "PostgreSQL", "React", "Chart.js", "OpenAI", "Prometheus", "Grafana"]}
                 source="https://github.com/JasonFast23/ai-rag-evaluator"
-                image="/rag-eval-screenshot.png"
+                image="/ai rag scale eval.png"
               />
 
               <ProjectCard 

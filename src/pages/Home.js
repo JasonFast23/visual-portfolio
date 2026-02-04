@@ -187,15 +187,15 @@ function Home() {
             title="AI RAG Eval"
             description="Evaluation framework for RAG systems with automated testing and performance metrics"
             tech={["Python", "FastAPI", "PostgreSQL"]}
-            github="https://github.com/JasonFast23/ai-rag-eval"
-            image="/ai-rag-eval.png"
+            github="https://github.com/JasonFast23/BruinLM-AI-Rag-Eval"
+            image="/ai rag scale eval.png"
           />
           <ProjectCard 
             title="Multi-Agent Debate"
             description="Collaborative AI system where multiple agents engage in structured debates to reach consensus"
             tech={["Python", "Selenium", "Telegram Bot API"]}
             github="https://github.com/JasonFast23/multi-agent-debate"
-            image="/multi-agent-debate.png"
+            image="/ai historical debate.png"
           />
         </div>
       </section>
