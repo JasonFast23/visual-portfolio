@@ -97,7 +97,7 @@ const OpenClaw = () => {
                 <p>I configured OpenClaw to handle my emails and documents autonomously. Instead of manually sorting through inbox clutter or organizing files, the agent would handle them without my direct input.</p>
                 <p>This is where I am currently. The agent is running on the EC2 instance, monitoring specified directories and email accounts, executing automated workflows based on predefined rules and AI-driven decision-making.</p>
                 <h3>Further Observations</h3>
-                <p>What strikes me most about OpenClaw isn't just what it can do now, but the broader implications for deployed AI automation.</p>
+                <p>What strikes me most about OpenClaw are the broader implications for deployed AI automation.</p>
                 <p>Running an agent on dedicated infrastructure means it operates continuously without depending on my local machine. It has persistent access to resources, can execute long-running tasks, and remains available 24/7 without draining laptop battery or requiring my computer to stay powered on.</p>
                 <p>For personal use, this translates to genuine automation—tasks that happen without manual intervention, not just chat-based assistance that still requires me to execute the final step.</p>
                 
