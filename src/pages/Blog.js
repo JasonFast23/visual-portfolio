@@ -6,42 +6,52 @@ const Blog = () => {
     const saved = localStorage.getItem('theme');
     return saved === 'light' ? false : true;
   });
-  const [searchTerm, setSearchTerm] = useState('');
+  // ...existing code...
   const navigate = useNavigate();
 
   // Blog posts data
   const blogPosts = [
     {
       id: 1,
-      title: "Christmas Special: When I got my First Homelab",
-      description: "This is the story of how cloud storage pricing pushed me into building a quiet, always-on homelab that now runs everything I care about.",
-      date: "December 24, 2025",
-      dateSort: new Date("2025-12-24"),
-      readTime: "6 min read",
+      title: "Christmas Special: Setting up Ollama Gemma3 on the Jetson Orin Nano",
+      description: "Slower than cloud APIs, but entirely ours.",
+      date: "Janurary 4, 2026",
+      dateSort: new Date("2026-01-04"),
+      readTime: "4 min read",
       tags: ["Homelab", "Self-hosting", "Hardware"],
       path: "/blog/homelab"
     },
     {
       id: 2,
-      title: "My Quest for the Most Cost-Effective AI Tools",
-      description: "A personal journey of testing and comparing free, cheap, and value-oriented AI tools to see if they can match my corporate setup.",
-      date: "November 15, 2025",
-      dateSort: new Date("2025-11-15"),
-      readTime: "7 min read",
-      tags: ["Agentic AI", "Developer-Tools", "Coding Assistant"],
+      title: "Building a Data Pipeline for a Nonprofit: When AI Isn't the Core Solution (But Still Adds Value)",
+      description: "Data pipeline + OpenAI RAG chatbot verifying data change.",
+      date: "September 15, 2025",
+      dateSort: new Date("2025-09-15"),
+      readTime: "4 min read",
+      tags: ["AI Engineering", "Internship", "Docker", "Data Pipeline"],
       path: "/blog/ai-tools"
     },
     {
       id: 3,
-      title: "Making TACOS: Ted's AI Chatbot & Obsidian Sync",
-      description: "Building an AI assistant that integrates with my note-taking workflow for seamless knowledge management.",
-      date: "October 20, 2025",
-      dateSort: new Date("2025-10-20"),
-      readTime: "8 min read",
-      tags: ["AI", "Obsidian", "Productivity"],
-      path: "/blog/tacos"
+      title: "Building BruinLM: A Collective RAG System for UCLA Students",
+      description: "BruinLM—a personal agentic RAG system designed for students to upload course materials, search through them semantically, and interact with an AI agent trained on their collective knowledge base.",
+      date: "December 4, 2025",
+      dateSort: new Date("2025-12-04"),
+      readTime: "6 min read",
+      tags: ["RAG", "AI Engineering", "Collaboration", "UCLA"],
+      path: "/blog/bruinlm"
+    },
+    {
+      id: 4,
+      title: "Using OpenClaw: A Local AI Agent on AWS EC2",
+      description: "Setting up OpenClaw (Moltbot) on AWS EC2 to run a persistent, cloud-based automation agent with Discord and OpenAI integration.",
+      date: "February 8, 2026",
+      dateSort: new Date("2026-02-08"),
+      readTime: "5 min read",
+      tags: ["Automation", "Cloud", "AWS", "OpenClaw", "Discord", "OpenAI"],
+      path: "/blog/openclaw"
     }
-  ];
+  ].sort((a, b) => b.dateSort - a.dateSort);
 
   useEffect(() => {
     if (isDark) {
@@ -53,18 +63,18 @@ const Blog = () => {
       document.body.classList.add('light-theme');
       localStorage.setItem('theme', 'light');
     }
-    
+  }, [isDark]);
+
+  useEffect(() => {
     // Instantly position at top when component mounts
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [isDark]);
+  }, []);
 
   const handleBlogClick = (blogPath) => {
     navigate(blogPath);
   };
 
-  const clearSearch = () => {
-    setSearchTerm('');
-  };
+  // ...existing code...
 
   return (
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
@@ -104,25 +114,7 @@ const Blog = () => {
             <div className="blog-list-header">
               <h1 className="blog-list-title">my blog</h1>
               
-              <div className="blog-search-container">
-                <input 
-                  type="text" 
-                  className="blog-search" 
-                  placeholder="Search"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button 
-                  className="blog-clear-search"
-                  onClick={clearSearch}
-                  aria-label="Clear search"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                  </svg>
-                </button>
-              </div>
+
             </div>
 
             <div className="blog-posts-list">
@@ -176,11 +168,11 @@ const BlogPostItem = ({ title, description, date, readTime, tags, onClick }) => 
     <div className="blog-post-item" onClick={onClick}>
       <div className="blog-post-content">
         <div className="blog-post-header">
-          <h2 className="blog-post-title">{title}</h2>
-          <div className="blog-post-meta">
-            <span className="blog-post-date">{date}</span>
-            <span className="blog-post-read-time">{readTime}</span>
-          </div>
+          <h2 className="blog-post-title" style={{ marginTop: '1rem' }}>{title}</h2>
+            <div className="blog-post-meta">
+              <span className="blog-post-date" style={{ marginBottom: 0 }}>{date}</span>
+              <span className="blog-post-read-time" style={{ display: 'block', marginTop: 0 }}>{readTime}</span>
+            </div>
         </div>
         <p className="blog-post-description">{description}</p>
         <div className="blog-post-tags">

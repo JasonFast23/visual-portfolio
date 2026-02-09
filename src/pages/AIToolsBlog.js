@@ -20,6 +20,7 @@ const AIToolsBlog = () => {
   }, [isDark]);
 
   return (
+
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
       <header className="top-header">
         <div className="top-nav-container">
@@ -30,24 +31,24 @@ const AIToolsBlog = () => {
             <Link to="/contact" className="top-nav-item">contact</Link>
           </nav>
           <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
-          {isDark ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          )}
-        </button>
+            {isDark ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            )}
+          </button>
         </div>
       </header>
 
@@ -62,223 +63,67 @@ const AIToolsBlog = () => {
           </Link>
           <div className="blog-post-container">
             <header className="blog-post-header">
-              <div className="blog-post-meta">
-                <h1 className="blog-post-title">My Quest for the Most Cost-Effective AI Tools</h1>
-                <div className="blog-post-date">November 16, 2025</div>
-                <div className="blog-tags">
-                  <span className="blog-tag">Agentic AI</span>
-                  <span className="blog-tag">Developer-Tools</span>
-                  <span className="blog-tag">Coding Assistant</span>
-                  <span className="blog-tag">Claude</span>
-                  <span className="blog-tag">GPT-4</span>
-                  <span className="blog-tag">Cursor</span>
-                  <span className="blog-tag">GitHub Copilot</span>
-                  <span className="blog-tag">Cost Comparison</span>
-                </div>
-              </div>
             </header>
-
-      <article className="blog-post-content">
-        <p className="blog-post-intro">
-          A personal journey of testing and comparing free, cheap, and value-oriented AI tools to see if they can match my corporate setup.
-        </p>
-
-        <h2>The Corporate AI Paradise</h2>
-        <p>
-          At my internship, I have access to the dream setup: GitHub Copilot, ChatGPT Enterprise, Claude Pro, and a 
-          handful of other premium AI tools. The company pays hundreds of dollars per month for my access, and honestly, 
-          it's spoiled me. Code completion that actually works, conversations that don't hit usage limits, and models 
-          that can handle complex reasoning tasks without breaking a sweat.
-        </p>
-
-        <p>
-          But as a college student with a part-time income, replicating this setup at home would cost more than my 
-          monthly rent. So I set out on a mission: find the most cost-effective AI tools that could give me 80% of 
-          the capability at 20% of the cost.
-        </p>
-
-        <h2>The Testing Framework</h2>
-        <p>
-          I created a standardized testing approach across five categories:
-        </p>
-
-        <ul>
-          <li><strong>Code Generation:</strong> Building a React component from scratch</li>
-          <li><strong>Code Refactoring:</strong> Improving existing messy code</li>
-          <li><strong>Debugging:</strong> Finding and fixing bugs in broken code</li>
-          <li><strong>Documentation:</strong> Writing comprehensive docs for a complex function</li>
-          <li><strong>Architecture Advice:</strong> High-level system design recommendations</li>
-        </ul>
-
-        <p>
-          Each tool would be tested with the same prompts, and I'd rate them on accuracy, speed, context awareness, 
-          and overall usefulness.
-        </p>
-
-        <h2>The Contenders</h2>
-
-        <h3>Tier 1: Premium Options</h3>
-        <ul>
-          <li><strong>GitHub Copilot ($10/month):</strong> The gold standard for code completion</li>
-          <li><strong>ChatGPT Plus ($20/month):</strong> GPT-4 access with higher limits</li>
-          <li><strong>Claude Pro ($20/month):</strong> Anthropic's premium offering</li>
-          <li><strong>Cursor Pro ($20/month):</strong> AI-powered IDE with Claude integration</li>
-        </ul>
-
-        <h3>Tier 2: Budget-Friendly</h3>
-        <ul>
-          <li><strong>Perplexity Pro ($20/month):</strong> AI search with coding capabilities</li>
-          <li><strong>You.com ($15/month):</strong> Multi-model access at lower cost</li>
-          <li><strong>Poe ($20/month):</strong> Multiple AI models in one subscription</li>
-        </ul>
-
-        <h3>Tier 3: Free Options</h3>
-        <ul>
-          <li><strong>ChatGPT Free:</strong> Limited GPT-3.5 access</li>
-          <li><strong>Claude.ai Free:</strong> Limited Claude 3 Sonnet access</li>
-          <li><strong>Google Bard:</strong> Free but often inconsistent</li>
-          <li><strong>Bing Chat:</strong> GPT-4 powered, but limited context</li>
-          <li><strong>Phind:</strong> Developer-focused free AI</li>
-        </ul>
-
-        <h2>The Surprising Results</h2>
-
-        <h3>Best Overall Value: Claude.ai Free + Cursor Free</h3>
-        <p>
-          This combination shocked me. Claude's free tier gives you enough daily usage for most tasks, and its 
-          reasoning ability is exceptional. Combined with Cursor's free tier (which includes basic AI code completion), 
-          I could replicate about 70% of my corporate setup for $0/month.
-        </p>
-
-        <h3>Best Budget Premium: You.com Pro</h3>
-        <p>
-          At $15/month, You.com gives you access to GPT-4, Claude, and several other models. The interface isn't as 
-          polished as ChatGPT Plus, but the model variety more than makes up for it. Plus, the search integration 
-          is genuinely useful for finding up-to-date documentation.
-        </p>
-
-        <h3>Most Surprising Disappointment: GitHub Copilot Standalone</h3>
-        <p>
-          Without the context of other AI tools, Copilot felt limited. It's amazing for autocomplete and simple 
-          functions, but struggles with complex reasoning or architectural discussions. For $10/month, I expected more.
-        </p>
-
-        <h2>The Real Game Changer: Local Models</h2>
-        <p>
-          Halfway through my testing, I discovered the world of local AI models. Using Ollama, I could run Llama 2, 
-          Code Llama, and other models directly on my laptop. The setup was more complex, but the benefits were huge:
-        </p>
-
-        <ul>
-          <li>Completely private - no data leaves my machine</li>
-          <li>No usage limits or monthly costs</li>
-          <li>Offline capability</li>
-          <li>Customizable for specific use cases</li>
-        </ul>
-
-        <p>
-          The catch? You need decent hardware (16GB+ RAM recommended) and the models aren't quite as capable as 
-          GPT-4 or Claude Pro. But for many coding tasks, they're surprisingly good.
-        </p>
-
-        <h2>My Final Setup</h2>
-        <p>
-          After two months of testing, here's what I settled on:
-        </p>
-
-        <ul>
-          <li><strong>Primary:</strong> Claude.ai Free for complex reasoning and architecture</li>
-          <li><strong>Coding:</strong> Cursor Free + local Code Llama for autocomplete</li>
-          <li><strong>Research:</strong> Perplexity Free for finding documentation</li>
-          <li><strong>Fallback:</strong> ChatGPT Free when I hit Claude's daily limits</li>
-          <li><strong>Total cost:</strong> $0/month</li>
-        </ul>
-
-        <h3>When I Need More Power</h3>
-        <p>
-          For major projects or when deadlines are tight, I'll subscribe to You.com Pro for a month. At $15, it's 
-          cheaper than the alternatives and gives me access to premium models when I need them.
-        </p>
-
-        <h2>Lessons Learned</h2>
-
-        <h3>1. Free Tiers Are Better Than Expected</h3>
-        <p>
-          The major AI companies are in an arms race for users, and that benefits us. The free tiers of Claude, 
-          ChatGPT, and others are genuinely useful for most development tasks.
-        </p>
-
-        <h3>2. Diversity Beats Power</h3>
-        <p>
-          Having access to multiple models (even if they're not the latest) is often more valuable than having 
-          unlimited access to one premium model. Different models excel at different tasks.
-        </p>
-
-        <h3>3. Local Models Are Underrated</h3>
-        <p>
-          The privacy, offline capability, and zero ongoing costs make local models compelling for many use cases. 
-          The gap in capability is shrinking rapidly.
-        </p>
-
-        <h3>4. Context Is King</h3>
-        <p>
-          Tools like Cursor that can see your entire codebase provide much better suggestions than general-purpose 
-          chatbots, even if the underlying model is less powerful.
-        </p>
-
-        <h2>The Three-Month Update</h2>
-        <p>
-          It's been three months since I switched to my budget setup, and I'm honestly surprised by how little I 
-          miss the premium tools. My productivity hasn't dropped significantly, and I've learned to be more 
-          intentional about when and how I use AI assistance.
-        </p>
-
-        <p>
-          The biggest adjustment was learning to break down complex problems into smaller chunks that fit within 
-          free tier limitations. Ironically, this has made me a better problem-solver overall.
-        </p>
-
-        <h2>Recommendations by Budget</h2>
-
-        <h3>$0/month (Student Budget)</h3>
-        <ul>
-          <li>Claude.ai Free</li>
-          <li>ChatGPT Free</li>
-          <li>Cursor Free</li>
-          <li>Local Ollama setup</li>
-        </ul>
-
-        <h3>$15/month (Tight Budget)</h3>
-        <ul>
-          <li>You.com Pro</li>
-          <li>Cursor Free</li>
-          <li>Local models for offline work</li>
-        </ul>
-
-        <h3>$35/month (Comfortable Budget)</h3>
-        <ul>
-          <li>Claude Pro</li>
-          <li>GitHub Copilot</li>
-          <li>Keep free alternatives as backups</li>
-        </ul>
-
-        <h2>The Future of Budget AI</h2>
-        <p>
-          The landscape is changing rapidly. Open-source models are getting better, local hardware is getting cheaper, 
-          and companies are finding new ways to monetize AI beyond subscription fees. I expect the gap between free 
-          and premium tools to continue shrinking.
-        </p>
-
-        <p>
-          My advice? Start with free tools and upgrade incrementally. You might be surprised by how far you can get 
-          without spending a dime.
-        </p>
-
-        <p className="blog-post-outro">
-          <em>What's your experience with budget-friendly AI tools? I'm always looking for new options to test - 
-          let me know what you've discovered!</em>
-        </p>
-      </article>
+            <article className="blog-post-content">
+              <img 
+                src="/fortheneed-intern.jpg"
+                alt="For the Need Intern"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  margin: '0 auto 2rem auto',
+                  borderRadius: '12px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.12)'
+                }}
+              />
+              <h2>Building a Data Pipeline for a Nonprofit: When AI Isn't the Core Solution (But Still Adds Value)</h2>
+              <p>During my internship at For the Need Foundation, I was tasked with solving a recurring data management problem. My supervisor, Allie, spent over an hour each week manually cleaning donor records exported from their NEON ONE CRM system. The sheets contained hundreds of entries with duplicates, formatting inconsistencies, and data errors that needed correction before being re-imported.</p>
+              
+              <h3>Initial Approach: API Integration</h3>
+              <p>My first instinct was to connect n8n directly to NEON ONE's API. The plan was straightforward: authenticate using client credentials, pull the data, process it, then push it back.</p>
+              <p>The authentication failed consistently. Despite testing various client ID and secret combinations over several days, I couldn't establish a connection. After a week of troubleshooting, I recognized this approach wasn't viable within my timeline and pivoted.</p>
+              <h3>The Local Processing Solution</h3>
+              <p>I revisited Allie's workflow description. She mentioned exporting sheets to her desktop before making edits—a detail that suggested an alternative path. If I could process files at the local level, I wouldn't need CRM API access at all.</p>
+              <p>I designed a new n8n workflow using Python to monitor a designated download folder, process incoming spreadsheet files, clean the data based on predefined rules, and export a finalized version. I configured Allie's browser to save CRM exports directly to this folder, creating a seamless handoff point.</p>
+                            <img 
+                              src="/n8n workflow.png"
+                              alt="n8n workflow screenshot"
+                              style={{
+                                display: 'block',
+                                width: '100%',
+                                height: 'auto',
+                                margin: '2rem auto',
+                                borderRadius: '12px',
+                                boxShadow: '0 2px 12px rgba(0,0,0,0.12)'
+                              }}
+                            />
+              <p>The challenge: n8n's cloud platform couldn't access local filesystems by default. This required a different infrastructure approach.</p>
+              <h3>Docker Implementation</h3>
+              <p>I containerized the solution using Docker with a local n8n instance, mounting it to Allie's downloads directory. This gave the workflow direct access to exported files.</p>
+              <p>After configuring the container and migrating my Python automation, I ran a test with an actual export containing hundreds of donor records—emails, phone numbers, birthdays, addresses. The workflow processed everything in two to three seconds.</p>
+              <p>I scheduled a demonstration with Allie to present the solution.</p>
+              <h3>The AI Consideration</h3>
+              <p>Before continuing, I should address the AI component—or initially, the lack of one.</p>
+              <p>I'd wanted to leverage language models for this project. It seemed like a natural fit for data cleaning and transformation. I tested the approach using GPT-4o-mini and GPT-4o, processing sample sheets through the APIs.</p>
+              <p>The economics didn't work.  The sheets were too large, and the token costs scaled poorly. Even accounting for more capable models like Claude Opus or Sonnet, the recurring API expenses would have been unreasonable for a nonprofit operating on limited resources.</p>
+              <p>Deterministic Python code turned out to be more cost-effective and appropriate for the task. This was a straightforward data cleaning problem with well-defined rules.</p>
+              <p>Still, I saw an opportunity to integrate AI meaningfully.</p>
+              <h3>Adding a RAG Interface</h3>
+              
+              <p>While refactoring the Python workflow, I thought of a genuine use case for AI—a query interface.</p>
+              <p>I implemented a local RAG system that operated on a subset of the data: records that had been modified or flagged during processing. Rather than forcing Allie and Julie to parse through filtered spreadsheets manually, they could query the system in natural language: "Show me new duplicate birthdays" or "Which entries were updated this week?"</p>
+              <p>The RAG setup ran entirely locally using a vector database for relevant CRM information and a retrieval system for conversational interaction. No API costs, no external dependencies, no ongoing fees.</p>
+              
+              <h3>Deployment and Handoff</h3>
+              <p>During my final presentation with Allie, I set up the Docker environment on her workstation, demonstrated the workflow execution process, and walked through the RAG query interface. After confirming that it worked, Allie tasked me with that setting up the same automation system for her co-worker, Julie.</p>
+              <p>Both installations included local n8n accounts and configured Docker containers.</p>
+              <h3>Reflection on Tooling Decisions</h3>
+              
+              
+              <p>The internship was a lesson in engineering judgment. I realized that AI for automation problems isn't always warranted. The question isn't "Can AI solve this?" but rather "Is AI the most appropriate solution given the constraints and requirements?"</p>
+              <p>In this case, AI played a supporting role rather than a central one.</p>
+            </article>
           </div>
         </section>
       </main>

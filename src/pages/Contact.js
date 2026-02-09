@@ -55,27 +55,25 @@ const Contact = () => {
         <section className="section">
           <div className="contact-page-container">
             <div className="contact-page-header">
-              <h1 className="contact-page-title">contact me</h1>
+              <h1 className="contact-page-title" style={{ fontSize: '3rem' }}>contact me</h1>
             </div>
 
             <form className="contact-page-form">
-              <div className="contact-form-row">
-                <div className="contact-form-group">
-                  <input 
-                    type="text" 
-                    className="contact-form-input" 
-                    placeholder="Name"
-                    required
-                  />
-                </div>
-                <div className="contact-form-group">
-                  <input 
-                    type="email" 
-                    className="contact-form-input" 
-                    placeholder="Email"
-                    required
-                  />
-                </div>
+              <div className="contact-form-group">
+                <input 
+                  type="text" 
+                  className="contact-form-input" 
+                  placeholder="Name"
+                  required
+                />
+              </div>
+              <div className="contact-form-group">
+                <input 
+                  type="email" 
+                  className="contact-form-input" 
+                  placeholder="Email"
+                  required
+                />
               </div>
               
               <div className="contact-form-group">

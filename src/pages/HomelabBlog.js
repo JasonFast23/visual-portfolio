@@ -20,6 +20,7 @@ const HomelabBlog = () => {
   }, [isDark]);
 
   return (
+
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
       <header className="top-header">
         <div className="top-nav-container">
@@ -30,24 +31,24 @@ const HomelabBlog = () => {
             <Link to="/contact" className="top-nav-item">contact</Link>
           </nav>
           <button onClick={() => setIsDark(!isDark)} className="top-theme-toggle" aria-label="Toggle theme">
-          {isDark ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          )}
-        </button>
+            {isDark ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            )}
+          </button>
         </div>
       </header>
 
@@ -61,145 +62,46 @@ const HomelabBlog = () => {
             Back to Blog
           </Link>
           <div className="blog-post-container">
-            <header className="blog-post-header">
-              <div className="blog-post-meta">
-                <h1 className="blog-post-title">Christmas Special: When I got my First Homelab</h1>
-                <div className="blog-post-date">December 25, 2025</div>
-                <div className="blog-tags">
-                  <span className="blog-tag">Homelab</span>
-                  <span className="blog-tag">Self-hosting</span>
-                  <span className="blog-tag">Hardware</span>
-                  <span className="blog-tag">Docker</span>
-                  <span className="blog-tag">Linux</span>
-                  <span className="blog-tag">Networking</span>
-                  <span className="blog-tag">Storage</span>
-                  <span className="blog-tag">Privacy</span>
-                  <span className="blog-tag">Cost-Savings</span>
-                </div>
-              </div>
-            </header>
-
-      <article className="blog-post-content">
-        <p className="blog-post-intro">
-          This is the story of how cloud storage pricing pushed me into building a quiet, always-on homelab that now runs everything I care about.
-        </p>
-
-        <h2>The Catalyst: My Cloud Storage Bill</h2>
-        <p>
-          It was a cold December morning when I opened my Google Drive invoice for the month. $29.99 for 2TB of storage. Again. 
-          I stared at my screen, calculating how much I'd spent on cloud storage over the past year. Nearly $360 just for storing 
-          my photos, documents, and random files that I "might need someday."
-        </p>
-
-        <p>
-          That's when it hit me - I was essentially renting a computer in someone else's data center to hold my stuff. 
-          What if I could just... own that computer?
-        </p>
-
-        <h2>The Research Rabbit Hole</h2>
-        <p>
-          Like any good engineer, I dove headfirst into research. YouTube became my university, with channels like 
-          TechnoTim, NetworkChuck, and Craft Computing becoming my daily entertainment. I learned about NAS systems, 
-          Proxmox, Docker containers, and the magical world of self-hosting.
-        </p>
-
-        <p>
-          The more I learned, the more I realized that cloud storage was just the tip of the iceberg. People were running 
-          their own Netflix (Plex/Jellyfin), their own Google Photos (PhotoPrism/Immich), their own Dropbox (Nextcloud), 
-          and even their own smart home hubs (Home Assistant). The possibilities were endless.
-        </p>
-
-        <h2>Building My First Lab</h2>
-        <p>
-          After weeks of research and analysis paralysis, I finally pulled the trigger on my first homelab build:
-        </p>
-
-        <ul>
-          <li><strong>CPU:</strong> Intel i5-12400 (6-core, low power consumption)</li>
-          <li><strong>RAM:</strong> 32GB DDR4 (because RAM is cheap and Docker loves it)</li>
-          <li><strong>Storage:</strong> 1TB NVMe SSD for the OS + 2x 4TB WD Red drives in RAID 1</li>
-          <li><strong>Case:</strong> Fractal Design Node 202 (compact and whisper quiet)</li>
-          <li><strong>OS:</strong> Proxmox VE (because virtualization is the way)</li>
-        </ul>
-
-        <p>
-          Total cost: around $800. Less than three years of my Google Drive subscription, and I'd own it forever.
-        </p>
-
-        <h2>The Christmas Miracle</h2>
-        <p>
-          I spent Christmas Eve setting everything up. While my family was wrapping presents downstairs, I was in my room 
-          carefully installing Proxmox, creating VMs, and setting up my first Docker containers. By midnight, I had:
-        </p>
-
-        <ul>
-          <li>Nextcloud running for file storage and sync</li>
-          <li>Immich handling all my photos with AI-powered face recognition</li>
-          <li>Jellyfin streaming my movie collection</li>
-          <li>Pi-hole blocking ads network-wide</li>
-          <li>Home Assistant controlling my smart lights</li>
-        </ul>
-
-        <p>
-          Christmas morning felt different. While my family was opening presents, I was showing them how our internet was 
-          now ad-free, how they could access their files from anywhere, and how I could stream movies without buffering. 
-          My mom's reaction when she saw her photos automatically organized by date and face was priceless.
-        </p>
-
-        <h2>Six Months Later: The Results</h2>
-        <p>
-          Fast forward to today, and my homelab has grown into something beautiful:
-        </p>
-
-        <ul>
-          <li><strong>Storage:</strong> 8TB of usable space (way more than I ever had in the cloud)</li>
-          <li><strong>Services:</strong> 20+ Docker containers running everything from password management to monitoring</li>
-          <li><strong>Uptime:</strong> 99.7% (better than some cloud providers I've used)</li>
-          <li><strong>Cost:</strong> ~$15/month in electricity (compared to $30/month for cloud storage alone)</li>
-          <li><strong>Learning:</strong> Immeasurable. I've learned more about networking, Linux, and system administration in six months than in years of development work.</li>
-        </ul>
-
-        <h2>What I'd Do Differently</h2>
-        <p>
-          If I were starting over today, here's what I'd change:
-        </p>
-
-        <ul>
-          <li><strong>Start smaller:</strong> A simple Raspberry Pi 4 with external storage would have been a great starter</li>
-          <li><strong>Plan for expansion:</strong> I should have bought a case with more drive bays from the beginning</li>
-          <li><strong>Network properly:</strong> Invest in a managed switch and proper network monitoring from day one</li>
-          <li><strong>Backup strategy:</strong> Set up automated off-site backups immediately (I learned this the hard way)</li>
-        </ul>
-
-        <h2>The Unexpected Benefits</h2>
-        <p>
-          Beyond the cost savings, my homelab has given me something I didn't expect: peace of mind. I control my data. 
-          I know where it is, who has access to it, and how it's being used. No more worrying about terms of service 
-          changes or privacy policies.
-        </p>
-
-        <p>
-          It's also made me a better developer. Understanding how services actually run, how networking works, and how 
-          to troubleshoot complex systems has made me more valuable in my day job.
-        </p>
-
-        <h2>Should You Build a Homelab?</h2>
-        <p>
-          If you're curious about technology, enjoy learning, and want more control over your digital life, absolutely. 
-          Start small - even a Raspberry Pi can teach you a lot. The rabbit hole is deep, but it's one of the most 
-          rewarding technical journeys you can take.
-        </p>
-
-        <p>
-          Just be warned: once you start self-hosting, it's hard to stop. My family now jokes that I'm running a 
-          "data center" in my bedroom. They're not entirely wrong.
-        </p>
-
-        <p className="blog-post-outro">
-          <em>Have questions about homelab setups or want to share your own journey? Feel free to reach out - I love 
-          talking about this stuff!</em>
-        </p>
-      </article>
+            <article className="blog-post-content">
+              <img 
+                src="/jetson.png"
+                alt="Nvidia Jetson Orin Nano"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  margin: '0 auto 2rem auto',
+                  borderRadius: '12px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.12)'
+                }}
+              />
+              <h2>Setting Up Ollama Gemma 3 on the Nvidia Jetson Orin Nano</h2>
+              <p>Over winter break, my dad gave me an Nvidia Jetson Orin Nano for Christmas. I was excited to finally gain hands-on experience with AI hardware, configuration, and deployment.</p>
+              <p>He warned me upfront that the assembly would be manageable, but the software setup would feel long and tedious. He emphasized patience. That turned out to be accurate advice.</p>
+              <h3>The Setup Process</h3>
+              <p>The process involved configuring the Jetson's operating system, installing dependencies, setting up Ollama, then deploying the model.</p>
+              <p>The hardware assembly itself felt straightforward. The challenge was the software configuration: installing the correct drivers, ensuring compatibility between components, working through dependency chains, and verifying that everything was properly configured before attempting to run a model.</p>
+              
+              <h3>Running the Model</h3>
+              <p>Once the environment was configured, I ran my first local model:</p>
+              <pre><code>ollama run gemma3:4b</code></pre>
+              <p>This deployed Google's Gemma 3 model with 4 billion parameters—a relatively lightweight option suitable for the Jetson's hardware constraints.</p>
+              <p>I used it as a personal chat assistant, asking general questions and testing its conversational capabilities. I wanted to evaluate performance and compare it against cloud-based models like Claude or GPT.</p>
+              <h3>Performance Observations</h3>
+              <p>The model worked, but the response latency was immediately noticeable. Compared to querying Claude or GPT through their APIs, the local model was significantly slower. Generation happened token by token at a visible pace.</p>
+              <p>This wasn't surprising given the hardware limitations—the Jetson Orin Nano is an edge computing device optimized for efficiency and portability, not raw performance.</p>
+              <p>Still, the model was ours. No API subscription costs. No per-token pricing. No dependency on external services. For experimentation, prototyping, or use cases where latency isn't critical, that independence has value.</p>
+              <p>I wasn't building a production application, so the slower speed didn't matter. What mattered was understanding what local deployment actually entails—the constraints, the setup overhead, and the operational differences compared to calling an API.</p>
+              
+              <h3>Reflections on Local vs. Cloud AI</h3>
+              <p>This experience clarified the practical distinctions between local and cloud-based AI deployment:</p>
+              <ul>
+                <li>Cloud models (Claude, GPT-4, etc.) offer speed, scalability, and minimal setup overhead. You pay for convenience and performance, but you're dependent on external infrastructure and ongoing costs.</li>
+                <li>Local models offer control, privacy, and zero marginal cost per query. You pay upfront in hardware and setup time, and you're constrained by your device's computational resources.</li>
+              </ul>
+              <p>Neither is universally better. The right choice depends on the use case, budget, latency requirements, and data sensitivity.</p>
+              <p>For my purposes—learning how local AI deployment works and gaining experience with edge hardware—the Jetson setup was exactly the right tool.</p>
+            </article>
           </div>
         </section>
       </main>

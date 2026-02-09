@@ -27,6 +27,55 @@ function Home() {
     navigate(blogPath);
   };
 
+  // Dynamically get the 2 most recent blog posts from Blog.js
+  let blogPosts = [];
+  try {
+    // Blog.js exports a default Blog component, so we need to extract the blogPosts array logic here
+    // For now, we duplicate the logic to keep the lists in sync
+    blogPosts = [
+      {
+        id: 1,
+        title: "Christmas Special: Setting up Ollama Gemma3 on the Jetson Orin Nano",
+        description: "Slower than cloud APIs, but entirely ours.",
+        date: "Janurary 4, 2026",
+        dateSort: new Date("2026-01-04"),
+        readTime: "4 min read",
+        tags: ["Homelab", "Self-hosting", "Hardware"],
+        path: "/blog/homelab"
+      },
+      {
+        id: 2,
+        title: "Building a Data Pipeline for a Nonprofit: When AI Isn't the Core Solution (But Still Adds Value)",
+        description: "How I built a data pipeline for a nonprofit and learned that the best AI engineering sometimes means knowing when not to use AI.",
+        date: "September 15, 2025",
+        dateSort: new Date("2025-09-15"),
+        readTime: "4 min read",
+        tags: ["AI Engineering", "Internship", "Docker", "Data Pipeline"],
+        path: "/blog/ai-tools"
+      },
+      {
+        id: 3,
+        title: "Building BruinLM: A Collective RAG System for UCLA Students",
+        description: "During Fall quarter at UCLA, I built BruinLM—a personal agentic RAG system designed for students to upload course materials, search through them semantically, and interact with an AI agent trained on their collective knowledge base.",
+        date: "December 4, 2025",
+        dateSort: new Date("2025-12-04"),
+        readTime: "6 min read",
+        tags: ["RAG", "AI Engineering", "Collaboration", "UCLA"],
+        path: "/blog/bruinlm"
+      },
+      {
+        id: 4,
+        title: "Setting Up OpenClaw: A Local AI Agent on AWS EC2",
+        description: "How I set up OpenClaw (formerly Moltbot) on AWS EC2 to run a persistent, cloud-based automation agent with Discord and OpenAI integration.",
+        date: "February 8, 2026",
+        dateSort: new Date("2026-02-08"),
+        readTime: "5 min read",
+        tags: ["Automation", "Cloud", "AWS", "OpenClaw", "Discord", "OpenAI"],
+        path: "/blog/openclaw"
+      }
+    ].sort((a, b) => b.dateSort - a.dateSort);
+  } catch (e) {}
+  const recentPosts = blogPosts.slice(0, 2);
   return (
     <div className={`App ${isDark ? 'dark' : 'light'}`}>
       <header className="top-header">
@@ -186,14 +235,14 @@ function Home() {
           <ProjectCard 
             title="AI RAG Eval"
             description="Evaluation framework for RAG systems with automated testing and performance metrics"
-            tech={["Python", "FastAPI", "PostgreSQL"]}
+            tech={["Python", "aiohttp", "asyncio", "Claude API", "JSON", "Logging"]}
             github="https://github.com/JasonFast23/BruinLM-AI-Rag-Eval"
             image="/ai rag scale eval.png"
           />
           <ProjectCard 
             title="Multi-Agent Debate"
             description="Collaborative AI system where multiple agents engage in structured debates to reach consensus"
-            tech={["Python", "Selenium", "Telegram Bot API"]}
+            tech={["JavaScript ES6+", "OpenAI API", "RESTful API", "HTML5 & CSS3"]}
             github="https://github.com/JasonFast23/multi-agent-debate"
             image="/ai historical debate.png"
           />
@@ -211,40 +260,26 @@ function Home() {
           </Link>
         </div>
         <div className="blogs-list">
-          <div className="blog-card" onClick={() => handleBlogClick('/blog/homelab')}>
-            <div className="blog-header">
-              <h3 className="blog-title">Christmas Special: When I got my First Homelab</h3>
-              <div className="blog-meta">
-                <div className="blog-date">
-                  December 25, 2025
+          {recentPosts.map(post => (
+            <div className="blog-card" key={post.id} onClick={() => handleBlogClick(post.path)}>
+              <div className="blog-header">
+                <h3 className="blog-title">{post.title}</h3>
+                <div className="blog-meta">
+                  <div className="blog-date">{post.date}</div>
+                  <div className="blog-read-time">{post.readTime}</div>
                 </div>
               </div>
-            </div>
-            <p className="blog-description">This is the story of how cloud storage pricing pushed me into building a quiet, always-on homelab that now runs everything I care about.</p>
-            <div className="blog-tags">
-              <span className="blog-tag">Homelab</span>
-              <span className="blog-tag">Self-hosting</span>
-              <span className="blog-tag">Hardware</span>
-              <span className="blog-tag">+6</span>
-            </div>
-          </div>
-          <div className="blog-card" onClick={() => handleBlogClick('/blog/ai-tools')}>
-            <div className="blog-header">
-              <h3 className="blog-title">My Quest for the Most Cost-Effective AI Tools</h3>
-              <div className="blog-meta">
-                <div className="blog-date">
-                  November 16, 2025
-                </div>
+              <p className="blog-description">{post.description}</p>
+              <div className="blog-tags">
+                {post.tags.slice(0, 3).map(tag => (
+                  <span className="blog-tag" key={tag}>{tag}</span>
+                ))}
+                {post.tags.length > 3 && (
+                  <span className="blog-tag">+{post.tags.length - 3}</span>
+                )}
               </div>
             </div>
-            <p className="blog-description">A personal journey of testing and comparing free, cheap, and value-oriented AI tools to see if they can match my corporate setup.</p>
-            <div className="blog-tags">
-              <span className="blog-tag">Agentic AI</span>
-              <span className="blog-tag">Developer-Tools</span>
-              <span className="blog-tag">Coding Assistant</span>
-              <span className="blog-tag">+5</span>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
