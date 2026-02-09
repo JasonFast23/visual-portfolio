@@ -137,7 +137,7 @@ const Blog = () => {
       <footer className="contact-page-footer">
         <div className="contact-footer-content">
           <div className="contact-footer-text">
-            <span>© 2026 jasonpark.com</span>
+            <span>© 2026 jasonpark23.com</span>
           </div>
           <div className="contact-footer-links">
             <a href="https://linkedin.com/in/jason-park-123202259" target="_blank" rel="noopener noreferrer" className="contact-footer-icon" aria-label="LinkedIn">

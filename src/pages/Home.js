@@ -286,7 +286,7 @@ function Home() {
       <footer className="site-footer">
         <div className="footer-content">
           <div className="footer-text">
-            <span>© 2026 jasonpark.com</span>
+            <span>© 2026 jasonpark23.com</span>
           </div>
           <div className="footer-links">
             <a href="https://linkedin.com/in/jason-park-123202259" target="_blank" rel="noopener noreferrer" className="footer-icon" aria-label="LinkedIn">
