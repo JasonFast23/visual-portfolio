@@ -46,7 +46,7 @@ function Home() {
       {
         id: 2,
         title: "Building a Data Pipeline for a Nonprofit: When AI Isn't the Core Solution (But Still Adds Value)",
-        description: "How I built a data pipeline for a nonprofit and learned that the best AI engineering sometimes means knowing when not to use AI.",
+        description: "How I built a data pipeline for a nonprofit and learned that the solution sometimes means knowing when not to use AI.",
         date: "September 15, 2025",
         dateSort: new Date("2025-09-15"),
         readTime: "4 min read",
@@ -114,7 +114,7 @@ function Home() {
           <div className="about-text">
             <h2>Hi, I'm Jason</h2>
             <p className="description">
-              AI engineer building RAG systems and multi-agent architectures.
+              
             </p>
             <p className="subtitle">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px'}}>
